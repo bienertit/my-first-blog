@@ -12,17 +12,20 @@
         <p>Hallo Spinner</p>
         <p>Springspinnen sind toll!</p>
 
-            <time>published: 17.10.2024, 10:45</time>
-            <h2><a href="">My first post</a></h2>
-            <p>Springspinnen sind die niedlichsten Spinnen</p>
-        </article>
+        <!-- Hier beginnt die Schleife -->
+        {% for post in posts %}
+            <article>
+                <time>published: {{ post.published_date }}</time>
+                <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+                <p>{{ post.text }}</p>
+            </article>
+        {% endfor %}
+        <!-- Hier endet die Schleife -->
 
         <article>
             <time>published: 17.10.2024, 10:45</time>
             <h2><a href="">My second post</a></h2>
             <p>Springspinnen lieben Fliegen</p>
         </article>
-
-
     </body>
-</html> 
+</html>
